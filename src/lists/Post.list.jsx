@@ -1,7 +1,7 @@
 import { Typography, Grid } from "@mui/material";
 
 import PostListItem from "../listitems/Post.listItem";
-import PrimaryButton from "../buttons/Primary.buttons";
+// import PrimaryButton from "../buttons/Primary.buttons";
 
 // import divider from "../../utils/divider";
 
@@ -19,11 +19,11 @@ const PostList = ({ posts, loading }) => {
           </Typography>
         )}
 
-        <Grid container flexWrap='nowrap'>
+        {/* <Grid container flexWrap='nowrap'>
           <PrimaryButton variant="outlined">
             
           </PrimaryButton>
-        </Grid>
+        </Grid> */}
       </>
     );
   }
