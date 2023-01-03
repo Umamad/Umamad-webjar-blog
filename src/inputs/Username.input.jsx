@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo } from "react";
+import { useState, useRef, useMemo, useId } from "react";
 
 import { Grid, Typography, InputBase } from "@mui/material";
 
@@ -14,6 +14,8 @@ const UsernameInput = ({
   error,
   onChange,
 }) => {
+  const id = useId();
+
   const inputRef = useRef(null);
   const handleFocus = () => inputRef.current.focus();
 
@@ -32,12 +34,13 @@ const UsernameInput = ({
       error={error}
       isFilled={isFilled}
     >
-      <Typography component="label" htmlFor={name}>
+      <Typography component="label" htmlFor={id}>
         {label}
       </Typography>
       <Grid container item className="inner-container" onClick={handleFocus}>
         <UserIcon />
         <InputBase
+          id={id}
           type="text"
           name={name}
           placeholder={placeholder}

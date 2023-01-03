@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo } from "react";
+import { useState, useRef, useMemo, useId } from "react";
 
 import { Grid, Typography, InputBase, IconButton } from "@mui/material";
 
@@ -15,6 +15,8 @@ const PasswordInput = ({
   error,
   onChange,
 }) => {
+  const id = useId();
+
   const inputRef = useRef(null);
   const handleFocus = () => inputRef.current.focus();
 
@@ -37,12 +39,13 @@ const PasswordInput = ({
       error={error}
       isFilled={isFilled}
     >
-      <Typography component="label" htmlFor={name}>
+      <Typography component="label" htmlFor={id}>
         {label}
       </Typography>
       <Grid container item className="inner-container" onClick={handleFocus}>
         <LockIcon />
         <InputBase
+          id={id}
           type={isPasswordVisible ? "text" : "password"}
           name={name}
           placeholder={placeholder}
