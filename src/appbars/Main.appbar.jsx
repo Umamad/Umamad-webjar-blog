@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import useAuth from "../../hooks/useAuth";
 
-import { AppBar, Toolbar, Grid } from "@mui/material";
+import { AppBar, Toolbar, Grid, NoSsr } from "@mui/material";
 
 import PageContainer from "../containers/Page.container";
 import PrimaryButton from "../buttons/Primary.buttons";
@@ -44,23 +44,25 @@ const MainAppBar = () => {
               <NavigationList />
             </Grid>
 
-            {isLogin ? (
-              <PrimaryButton
-                onClick={signOut}
-                variant="outlined"
-                sx={{ height: 56, minWidth: 157 }}
-              >
-                خروج
-              </PrimaryButton>
-            ) : (
-              <PrimaryButton
-                onClick={toggleLoginModal}
-                variant="outlined"
-                sx={{ height: 56, minWidth: 157 }}
-              >
-                ورود
-              </PrimaryButton>
-            )}
+            <NoSsr>
+              {isLogin ? (
+                <PrimaryButton
+                  onClick={signOut}
+                  variant="outlined"
+                  sx={{ height: 56, minWidth: 157 }}
+                >
+                  خروج
+                </PrimaryButton>
+              ) : (
+                <PrimaryButton
+                  onClick={toggleLoginModal}
+                  variant="outlined"
+                  sx={{ height: 56, minWidth: 157 }}
+                >
+                  ورود
+                </PrimaryButton>
+              )}
+            </NoSsr>
           </Grid>
         </Toolbar>
       </PageContainer>

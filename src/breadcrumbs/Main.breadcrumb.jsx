@@ -17,6 +17,7 @@ export default function MainBreadcrumb({ routeList }) {
           <MainBreadcrumbLink
             href={href}
             current={idx === routeList.length - 1 ? 1 : 0}
+            key={href}
           >
             {label}
           </MainBreadcrumbLink>
